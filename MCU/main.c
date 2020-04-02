@@ -149,7 +149,7 @@ int main(void) {
 
     system_init();                          // halt WDT, enable FPU, master interrupt, system clock @ 24 MHz, init custom stop watch (Timer32)
     OE_VoltageLevelShifter();               // Output Enable on TXS0108E (voltage level shifter 3.3V <-> 5V for SPI between MSP432 master and PIC16 slaves
-    uart_init(256000, TX_WITH_INTERRUPTS);  // Initialize UART (communication to PC): 8N1, 57600 baud/s (would still work with 1.5 MHz cpu clock) -> t_byte = 174 us
+    uart_init(256000, TX_WITH_INTERRUPTS);  // Initialize UART (communication to PC): 8N1, 256000 baud/s (would still work with 1.5 MHz cpu clock) -> t_byte = 174 us
     spi_init(CPOL, CPHA, SPI_FREQ);         // Initialize SPI (communication to PICs): CPOL=0, CPHA=0, 400 kHz
     adc_init(AVCC, ADC_CLOCKSOURCE_SMCLK, ADC_PREDIVIDER_1, ADC_DIVIDER_2);  // Initialize Analog to Digital Converter: 14-bit resolution on 11 channels
 //    ADC14_setSampleHoldTime(ADC_PULSE_WIDTH_128, ADC_PULSE_WIDTH_128);
